@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pay Tax</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Pay Your Tax</h2>
+    <form id="tax-form">
+      <input type="text" id="name" placeholder="Farmer's Name" required />
+      <input type="number" id="area" placeholder="Land Area (in acres)" required />
+      <select id="quality" required>
+        <option value="">Select Land Quality</option>
+        <option value="bad">Badland</option>
+        <option value="good">Good</option>
+        <option value="excellent">Excellent</option>
+      </select>
+      <input type="number" id="produce" placeholder="Monthly Produce (in kg)" required />
+      <input type="date" id="submissionDate" required />
+      <button type="submit">Submit Tax</button>
+    </form>
+    <div id="tax-result"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
