@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Language Translator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="translator-container">
+    <img
+      src="https://raw.githubusercontent.com/Atharva-1108/AB-13-Website--Theme-2-/27ddfa67df653816c91925b642487616a85fab03/1300ce.png"
+      alt="World Map"
+      class="world-map"
+    />
+    <p class="map-caption">Historical map showcasing prominent cities and kingdoms existed in (322–185 BCE)</p>
+
+    <div class="translation-box">
+      <div class="translator-controls">
+        <select id="source-lang">
+          <option value="english">English</option>
+          <option value="prakrit">Prakrit</option>
+        </select>
+
+        <select id="target-lang">
+          <option value="parsi">Parsi</option>
+          <option value="irani">Irani</option>
+          <option value="greek">Greek</option>
+        </select>
+      </div>
+
+      <textarea id="input-text" placeholder="Enter your text here..."></textarea>
+      <textarea id="output-text" readonly placeholder="Translation will appear here..."></textarea>
+      <button onclick="translateText()">Translate</button>
+    </div>
+  </div>
+
+  <script>
+    function translateText() {
+      const input = document.getElementById('input-text').value.trim();
+      const source = document.getElementById('source-lang').value;
+      const target = document.getElementById('target-lang').value;
+      const output = document.getElementById('output-text');
+
+      if (!input) {
+        output.value = 'Please enter some text.';
+        return;
+      }
+
+      // Mock translation logic
+      output.value = `[${source.toUpperCase()} → ${target.toUpperCase()}]\n"${input}"`;
+    }
+  </script>
+</body>
+</html>
