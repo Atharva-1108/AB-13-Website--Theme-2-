@@ -3,29 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ancient Empires Web</title>
+  <title>Ancient Tax Portal</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Blur overlay -->
   <div id="overlay"></div>
-
-  <!-- Language Selection Prompt -->
   <div id="language-prompt">
     <div class="cloud">
-      <img src="animated-mauryan-boy.gif" alt="Mauryan Boy" />
+      <img src="1300ce.png" alt="Mauryan Boy" />
     </div>
     <div class="language-buttons">
-      <button id="english-btn">Continue in English</button>
-      <button id="prakrit-btn">𑀧𑀸𑀓𑁆𑀭𑀺𑀢𑁆 में जारी रखें</button>
+      <button onclick="selectLanguage('english')">Continue in English</button>
+      <button onclick="selectLanguage('prakrit')">𑀧𑀺𑀓𑁆𑀘𑀸𑀢𑁆 (Continue in Prakrit)</button>
     </div>
   </div>
 
-  <!-- Main Content -->
   <div id="main-content">
-    <h1>Welcome to the Empire Project</h1>
-    <p>This is your main page content after language selection.</p>
-    <button onclick="window.location.href='translator.html'">Language Translator</button>
+    <h1>Welcome to Ancient Tax Management System</h1>
+    <button onclick="location.href='pay-tax.html'">Pay Your Tax</button>
+    <button onclick="location.href='records.html'">My Records</button>
   </div>
 
   <script src="script.js"></script>
