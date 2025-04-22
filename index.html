@@ -3,33 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Language Selection</title>
+    <title>Language Portal</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <!-- Main Content -->
-    <div class="content">
-        <h1>Welcome to the Website</h1>
-        <p>This is the default page.</p>
-    </div>
-
-    <!-- Blur Effect -->
-    <div class="blur-background"></div>
 
     <!-- Language Selection Prompt -->
-    <div class="language-prompt">
-        <div class="cloud">
-            <img src="ladka_mauryan.png" alt="Mauryan Era Boy" class="animated-img">
-            <div class="prompt-content">
-                <h2>Do you want to continue in English?</h2>
-                <button onclick="setLanguage('english')">English</button>
-                <h2>or</h2>
-                <h2>Do you want to continue in Prakrit?</h2>
-                <button onclick="setLanguage('prakrit')">Prakrit</button>
-            </div>
+    <div id="prompt">
+        <div>
+            <h2>Do you want to continue in English or Prakrit?</h2>
+            <button id="english-btn">Continue in English</button>
+            <button id="prakrit-btn">Continue in Prakrit</button>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Main Content (After language selection) -->
+    <div id="main-content" class="hidden">
+        <h1>Welcome to the Language Portal</h1>
+        <button id="translate-btn">Language Translator</button>
+    </div>
+
+    <!-- Translator Page -->
+    <div id="translator-page" class="hidden">
+        <div id="map-container">
+            <img id="map" src="world_map.jpg" alt="World Map">
+            <p>Historical map showcasing prominent cities and kingdoms existed in (322-185 BCE)</p>
+        </div>
+        <div>
+            <h2>Language Translator</h2>
+            <label for="source-lang">Source Language:</label>
+            <select id="source-lang">
+                <option value="english">English</option>
+                <option value="prakrit">Prakrit</option>
+            </select>
+
+            <label for="target-lang">Target Language:</label>
+            <select id="target-lang">
+                <option value="parsi">Parsi</option>
+                <option value="irani">Irani</option>
+                <option value="greek">Greek</option>
+            </select>
+
+            <textarea id="input-text" placeholder="Enter text to translate"></textarea>
+
+            <button id="translate-submit">Translate</button>
+
+            <textarea id="output-text" placeholder="Translation will appear here" readonly></textarea>
+
+            <button id="back-btn">Back to Home</button>
+        </div>
+    </div>
+
 </body>
 </html>
