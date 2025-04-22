@@ -1,69 +1,33 @@
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  overflow: hidden;
-}
+window.onload = () => {
+  const overlay = document.getElementById("overlay");
+  const prompt = document.getElementById("language-prompt");
+  const mainContent = document.getElementById("main-content");
 
-#overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  backdrop-filter: blur(8px);
-  background-color: rgba(0, 0, 0, 0.4);
-  z-index: 1;
-}
+  const englishBtn = document.getElementById("english-btn");
+  const prakritBtn = document.getElementById("prakrit-btn");
 
-#language-prompt {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  background: white;
-  border-radius: 20px;
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
+  // Show prompt and blur until selection
+  overlay.style.display = "block";
+  prompt.style.display = "flex";
 
-.cloud img {
-  width: 120px;
-  animation: float 3s ease-in-out infinite;
-}
+  englishBtn.onclick = () => {
+    localStorage.setItem("lang", "english");
+    transitionToMain();
+  };
 
-@keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
-}
+  prakritBtn.onclick = () => {
+    localStorage.setItem("lang", "prakrit");
+    transitionToMain();
+  };
 
-.language-buttons button {
-  padding: 10px 20px;
-  font-size: 1rem;
-  margin: 5px;
-  border: none;
-  border-radius: 8px;
-  background-color: #2e86de;
-  color: white;
-  cursor: pointer;
-  transition: transform 0.3s;
-}
+  function transitionToMain() {
+    prompt.classList.add("fade-out");
+    overlay.classList.add("fade-out");
 
-.language-buttons button:hover {
-  transform: scale(1.05);
-}
-
-#main-content {
-  display: none;
-  padding: 40px;
-  text-align: center;
-}
-
-.fade-out {
-  opacity: 0;
-  transition: opacity 1s ease;
-}
+    setTimeout(() => {
+      prompt.style.display = "none";
+      overlay.style.display = "none";
+      mainContent.style.display = "block";
+    }, 1000); // 1 second fade
+  }
+};
