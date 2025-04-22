@@ -41,6 +41,13 @@ body {
   100% { transform: translateY(0); }
 }
 
+.world-map {
+  max-width: 80%; /* Ensure it doesn't overflow the container */
+  height: auto; /* Keep the aspect ratio intact */
+  display: block; /* Prevents space under the image */
+  margin: 0 auto; /* Centers the image horizontally */
+}
+
 .language-buttons button {
   padding: 10px 20px;
   font-size: 1rem;
