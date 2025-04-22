@@ -1,63 +1,69 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const prompt = document.getElementById("prompt");
-  const mainContent = document.getElementById("main-content");
-  const translatorPage = document.getElementById("translator-page");
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+}
 
-  // Check if the user has already selected a language
-  const selectedLanguage = localStorage.getItem("language");
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
 
-  if (selectedLanguage) {
-    showMainPage(); // If language is already selected, skip the prompt and show main page
-  } else {
-    prompt.classList.remove("hidden"); // Show the prompt if language hasn't been selected
-  }
+#language-prompt {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
 
-  // Handle language selection
-  document.getElementById("english-btn").addEventListener("click", function () {
-    localStorage.setItem("language", "english"); // Save the language choice
-    showMainPage(); // Show the main page
-  });
+.cloud img {
+  width: 120px;
+  animation: float 3s ease-in-out infinite;
+}
 
-  document.getElementById("prakrit-btn").addEventListener("click", function () {
-    localStorage.setItem("language", "prakrit"); // Save the language choice
-    showMainPage(); // Show the main page
-  });
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
 
-  // Function to hide the prompt and show the main content
-  function showMainPage() {
-    prompt.classList.add("fadeOut");
-    setTimeout(function () {
-      prompt.classList.add("hidden"); // Hide prompt after fadeOut
-      mainContent.classList.remove("hidden");
-      mainContent.classList.add("fadeIn"); // Show main content with fadeIn animation
-    }, 500); // Time to wait for the fadeOut to complete
-  }
+.language-buttons button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  margin: 5px;
+  border: none;
+  border-radius: 8px;
+  background-color: #2e86de;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
 
-  // Show the translator page when the translate button is clicked
-  document.getElementById("translate-btn").addEventListener("click", function () {
-    mainContent.classList.add("fadeOut");
-    setTimeout(function () {
-      mainContent.classList.add("hidden");
-      translatorPage.classList.remove("hidden");
-      translatorPage.classList.add("fadeIn"); // Show the translator page with fadeIn animation
-    }, 500);
-  });
+.language-buttons button:hover {
+  transform: scale(1.05);
+}
 
-  // Example of fetching translation (you can integrate with a translation API here)
-  document.getElementById("translate-submit").addEventListener("click", function () {
-    let inputText = document.getElementById("input-text").value;
-    // Call your translation API and get the translated text
-    let translatedText = "Translated text would appear here";  // This should come from the API
-    document.getElementById("output-text").value = translatedText;
-  });
+#main-content {
+  display: none;
+  padding: 40px;
+  text-align: center;
+}
 
-  // Go back to the main page from the translator page
-  document.getElementById("back-btn").addEventListener("click", function () {
-    translatorPage.classList.add("fadeOut");
-    setTimeout(function () {
-      translatorPage.classList.add("hidden");
-      mainContent.classList.remove("hidden");
-      mainContent.classList.add("fadeIn");
-    }, 500);
-  });
-});
+.fade-out {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
