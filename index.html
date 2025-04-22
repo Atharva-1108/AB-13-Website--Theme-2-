@@ -1,59 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Language Portal</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ancient Empires Web</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Blur overlay -->
+  <div id="overlay"></div>
 
-    <!-- Language Selection Prompt -->
-    <div id="prompt">
-        <div>
-            <h2>Do you want to continue in English or Prakrit?</h2>
-            <button id="english-btn">Continue in English</button>
-            <button id="prakrit-btn">Continue in Prakrit</button>
-        </div>
+  <!-- Language Selection Prompt -->
+  <div id="language-prompt">
+    <div class="cloud">
+      <img src="animated-mauryan-boy.gif" alt="Mauryan Boy" />
     </div>
-
-    <!-- Main Content (After language selection) -->
-    <div id="main-content" class="hidden">
-        <h1>Welcome to the Language Portal</h1>
-        <button id="translate-btn">Language Translator</button>
+    <div class="language-buttons">
+      <button id="english-btn">Continue in English</button>
+      <button id="prakrit-btn">𑀧𑀸𑀓𑁆𑀭𑀺𑀢𑁆 में जारी रखें</button>
     </div>
+  </div>
 
-    <!-- Translator Page -->
-    <div id="translator-page" class="hidden">
-        <div id="map-container">
-            <img src="https://github.com/Atharva-1108/AB-13-Website--Theme-2-/raw/27ddfa67df653816c91925b642487616a85fab03/1300ce.png" alt="World Map" id="map">
-            <p>Historical map showcasing prominent cities and kingdoms existed in (322-185 BCE)</p>
-        </div>
-        <div>
-            <h2>Language Translator</h2>
-            <label for="source-lang">Source Language:</label>
-            <select id="source-lang">
-                <option value="english">English</option>
-                <option value="prakrit">Prakrit</option>
-            </select>
+  <!-- Main Content -->
+  <div id="main-content">
+    <h1>Welcome to the Empire Project</h1>
+    <p>This is your main page content after language selection.</p>
+    <button onclick="window.location.href='translator.html'">Language Translator</button>
+  </div>
 
-            <label for="target-lang">Target Language:</label>
-            <select id="target-lang">
-                <option value="parsi">Parsi</option>
-                <option value="irani">Irani</option>
-                <option value="greek">Greek</option>
-            </select>
-
-            <textarea id="input-text" placeholder="Enter text to translate"></textarea>
-
-            <button id="translate-submit">Translate</button>
-
-            <textarea id="output-text" placeholder="Translation will appear here" readonly></textarea>
-
-            <button id="back-btn">Back to Home</button>
-        </div>
-    </div>
-
+  <script src="script.js"></script>
 </body>
 </html>
