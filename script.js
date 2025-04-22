@@ -1,26 +1,33 @@
-// script.js
-
-// For prompt transition on index.html
 window.onload = () => {
-  setTimeout(() => {
-    document.getElementById("prompt-container").style.opacity = 0;
+  const overlay = document.getElementById("overlay");
+  const prompt = document.getElementById("language-prompt");
+  const mainContent = document.getElementById("main-content");
+
+  const englishBtn = document.getElementById("english-btn");
+  const prakritBtn = document.getElementById("prakrit-btn");
+
+  // Show prompt and blur until selection
+  overlay.style.display = "block";
+  prompt.style.display = "flex";
+
+  englishBtn.onclick = () => {
+    localStorage.setItem("lang", "english");
+    transitionToMain();
+  };
+
+  prakritBtn.onclick = () => {
+    localStorage.setItem("lang", "prakrit");
+    transitionToMain();
+  };
+
+  function transitionToMain() {
+    prompt.classList.add("fade-out");
+    overlay.classList.add("fade-out");
+
     setTimeout(() => {
-      document.getElementById("prompt-container").style.display = "none";
-    }, 500); // Fade out after 0.5s
-  }, 3000); // Prompt disappears after 3 seconds
-};
-
-// For translation on translator.html
-function translateText() {
-  const input = document.getElementById('input-text').value.trim();
-  const source = document.getElementById('source-lang').value;
-  const target = document.getElementById('target-lang').value;
-  const output = document.getElementById('output-text');
-
-  if (!input) {
-    output.value = 'Please enter some text.';
-    return;
+      prompt.style.display = "none";
+      overlay.style.display = "none";
+      mainContent.style.display = "block";
+    }, 1000); // 1 second fade
   }
-
-  // Mock translation logic
-  output.value = `[${source.toUpperCase()} → ${target.toUpperCase()}]\n"${
+};
