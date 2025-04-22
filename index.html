@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Selection</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Main Content -->
+    <div class="content">
+        <h1>Welcome to the Website</h1>
+        <p>This is the default page.</p>
+    </div>
+
+    <!-- Blur Effect -->
+    <div class="blur-background"></div>
+
+    <!-- Language Selection Prompt -->
+    <div class="language-prompt">
+        <div class="cloud">
+            <img src="ladka_mauryan.png" alt="Mauryan Era Boy" class="animated-img">
+            <div class="prompt-content">
+                <h2>Do you want to continue in English?</h2>
+                <button onclick="setLanguage('english')">English</button>
+                <h2>or</h2>
+                <h2>Do you want to continue in Prakrit?</h2>
+                <button onclick="setLanguage('prakrit')">Prakrit</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
