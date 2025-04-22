@@ -42,7 +42,7 @@ body {
 }
 
 .world-map {
-  max-width: 80%; /* Ensure it doesn't overflow the container */
+  max-width: 60%; /* Ensure it doesn't overflow the container */
   height: auto; /* Keep the aspect ratio intact */
   display: block; /* Prevents space under the image */
   margin: 0 auto; /* Centers the image horizontally */
