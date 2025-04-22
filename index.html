@@ -3,20 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Welcome Page</title>
+  <title>Ancient Empires Web</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Main Page: Language Selection Prompt -->
-  <div class="prompt-container" id="prompt-container">
-    <div class="prompt-overlay">
-      <div class="prompt-box">
-        <div class="prompt-text">
-          <p>Do you want to continue in English?</p>
-          <button onclick="window.location.href = 'translator.html?lang=english'">English</button>
-          <p>Or in Prakrit?</p>
-          <button onclick="window.location.href = 'translator.html?lang=prakrit'">Prakrit</button>
-        </div>
-      </div>
+  <!-- Blur overlay -->
+  <div id="overlay"></div>
+
+  <!-- Language Selection Prompt -->
+  <div id="language-prompt">
+    <div class="cloud">
+      <img src="ladka_mauryan.gif" alt="Mauryan Boy" />
+    </div>
+    <div class="language-buttons">
+      <button id="english-btn">Continue in English</button>
+      <button id="prakrit-btn">𑀧𑀸𑀓𑁆𑀭𑀺𑀢𑁆 में जारी रखें</button>
     </div>
   </div>
+
+  <!-- Main Content -->
+  <div id="main-content">
+    <h1>Welcome to the Empire Project</h1>
+    <p>This is your main page content after language selection.</p>
+    <button onclick="window.location.href='translator.html'">Language Translator</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
