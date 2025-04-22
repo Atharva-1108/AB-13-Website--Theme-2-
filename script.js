@@ -1,41 +1,63 @@
-// Function to change language and handle UI updates
-function setLanguage(language) {
-  // Set language to localStorage or handle session storage if needed
-  localStorage.setItem('language', language);
+document.addEventListener("DOMContentLoaded", function () {
+  const prompt = document.getElementById("prompt");
+  const mainContent = document.getElementById("main-content");
+  const translatorPage = document.getElementById("translator-page");
 
-  // Change the page content based on the selected language
-  if (language === 'english') {
-      document.querySelector('.content').innerHTML = `
-          <h1>Welcome to the Website</h1>
-          <p>This is the default page in English.</p>
-      `;
-  } else if (language === 'prakrit') {
-      document.querySelector('.content').innerHTML = `
-          <h1>साइट पर स्वागत है</h1>
-          <p>यह default पृष्ठ है Prakrit में।</p>
-      `;
-  }
+  // Check if the user has already selected a language
+  const selectedLanguage = localStorage.getItem("language");
 
-  // Fade out the prompt and blur effect
-  document.querySelector('.language-prompt').classList.add('hidden');
-  document.querySelector('.blur-background').classList.add('hidden');
-
-  // After fade-out, remove the elements for clean-up
-  setTimeout(() => {
-      document.querySelector('.language-prompt').style.display = 'none';
-      document.querySelector('.blur-background').style.display = 'none';
-  }, 1000);  // Matches fade duration
-}
-
-// Check if language preference is already set in localStorage
-window.onload = () => {
-  let language = localStorage.getItem('language');
-  if (!language) {
-      // If no language selected, show the language prompt
-      document.querySelector('.language-prompt').style.display = 'block';
-      document.querySelector('.blur-background').style.display = 'block';
+  if (selectedLanguage) {
+    showMainPage(); // If language is already selected, skip the prompt and show main page
   } else {
-      // Load content based on saved language
-      setLanguage(language);
+    prompt.classList.remove("hidden"); // Show the prompt if language hasn't been selected
   }
-};
+
+  // Handle language selection
+  document.getElementById("english-btn").addEventListener("click", function () {
+    localStorage.setItem("language", "english"); // Save the language choice
+    showMainPage(); // Show the main page
+  });
+
+  document.getElementById("prakrit-btn").addEventListener("click", function () {
+    localStorage.setItem("language", "prakrit"); // Save the language choice
+    showMainPage(); // Show the main page
+  });
+
+  // Function to hide the prompt and show the main content
+  function showMainPage() {
+    prompt.classList.add("fadeOut");
+    setTimeout(function () {
+      prompt.classList.add("hidden"); // Hide prompt after fadeOut
+      mainContent.classList.remove("hidden");
+      mainContent.classList.add("fadeIn"); // Show main content with fadeIn animation
+    }, 500); // Time to wait for the fadeOut to complete
+  }
+
+  // Show the translator page when the translate button is clicked
+  document.getElementById("translate-btn").addEventListener("click", function () {
+    mainContent.classList.add("fadeOut");
+    setTimeout(function () {
+      mainContent.classList.add("hidden");
+      translatorPage.classList.remove("hidden");
+      translatorPage.classList.add("fadeIn"); // Show the translator page with fadeIn animation
+    }, 500);
+  });
+
+  // Example of fetching translation (you can integrate with a translation API here)
+  document.getElementById("translate-submit").addEventListener("click", function () {
+    let inputText = document.getElementById("input-text").value;
+    // Call your translation API and get the translated text
+    let translatedText = "Translated text would appear here";  // This should come from the API
+    document.getElementById("output-text").value = translatedText;
+  });
+
+  // Go back to the main page from the translator page
+  document.getElementById("back-btn").addEventListener("click", function () {
+    translatorPage.classList.add("fadeOut");
+    setTimeout(function () {
+      translatorPage.classList.add("hidden");
+      mainContent.classList.remove("hidden");
+      mainContent.classList.add("fadeIn");
+    }, 500);
+  });
+});
