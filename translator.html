@@ -7,49 +7,42 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Main Translator Page -->
   <div class="translator-container">
+    <!-- World Map Image -->
     <img
       src="https://raw.githubusercontent.com/Atharva-1108/AB-13-Website--Theme-2-/27ddfa67df653816c91925b642487616a85fab03/1300ce.png"
       alt="World Map"
       class="world-map"
     />
+    <!-- Caption Under Map -->
     <p class="map-caption">Historical map showcasing prominent cities and kingdoms existed in (322–185 BCE)</p>
 
+    <!-- Translation Box -->
     <div class="translation-box">
       <div class="translator-controls">
-        <select id="source-lang">
+        <!-- Language Select Dropdowns -->
+        <select id="source-lang" class="select-box">
           <option value="english">English</option>
           <option value="prakrit">Prakrit</option>
         </select>
 
-        <select id="target-lang">
+        <select id="target-lang" class="select-box">
           <option value="parsi">Parsi</option>
           <option value="irani">Irani</option>
           <option value="greek">Greek</option>
         </select>
       </div>
 
-      <textarea id="input-text" placeholder="Enter your text here..."></textarea>
-      <textarea id="output-text" readonly placeholder="Translation will appear here..."></textarea>
-      <button onclick="translateText()">Translate</button>
+      <!-- Textarea for Input and Output -->
+      <textarea id="input-text" class="text-area" placeholder="Enter your text here..."></textarea>
+      <textarea id="output-text" class="text-area" readonly placeholder="Translation will appear here..."></textarea>
+
+      <!-- Translate Button -->
+      <button onclick="translateText()" class="translate-btn">Translate</button>
     </div>
   </div>
 
-  <script>
-    function translateText() {
-      const input = document.getElementById('input-text').value.trim();
-      const source = document.getElementById('source-lang').value;
-      const target = document.getElementById('target-lang').value;
-      const output = document.getElementById('output-text');
-
-      if (!input) {
-        output.value = 'Please enter some text.';
-        return;
-      }
-
-      // Mock translation logic
-      output.value = `[${source.toUpperCase()} → ${target.toUpperCase()}]\n"${input}"`;
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
