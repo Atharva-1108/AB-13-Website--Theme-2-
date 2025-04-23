@@ -1,44 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Language Translator</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Language Translator</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+  <div class="translator-container">
+    <img src="1300ce.png" alt="World Map" class="world-map">
+    <p class="map-caption">Historical map showcasing prominent cities and kingdoms existed in (322–185 BCE)</p>
 
-    <div id="translator-container">
-        <h1>Language Translator</h1>
-        <!-- World map image -->
-        <img src="1300ce.png" alt="World Map" class="world-map">
-        <p>Historical map showcasing prominent cities and kingdoms existed in (322-185 BCE)</p>
+    <div class="translation-box">
+      <div class="translator-controls">
+        <select id="source-lang">
+          <option value="english">English</option>
+          <option value="prakrit">Prakrit</option>
+        </select>
 
-        <!-- Language selection -->
-        <div class="language-selector">
-            <label for="source-lang">From Language:</label>
-            <select id="source-lang">
-                <option value="en">English</option>
-                <option value="pr">Prakrit</option>
-            </select>
-            <label for="target-lang">To Language:</label>
-            <select id="target-lang">
-                <option value="parsi">Parsi</option>
-                <option value="irani">Irani</option>
-                <option value="greek">Greek</option>
-            </select>
-        </div>
+        <select id="target-lang">
+          <option value="parsi">Parsi</option>
+          <option value="irani">Irani</option>
+          <option value="greek">Greek</option>
+        </select>
+      </div>
 
-        <!-- Text boxes for translation -->
-        <textarea id="input-text" placeholder="Enter text here"></textarea>
-        <button onclick="translateText()">Translate</button>
-        <textarea id="output-text" placeholder="Translated text will appear here" readonly></textarea>
-
+      <textarea id="input-text" placeholder="Enter your text here..."></textarea>
+      <textarea id="output-text" readonly placeholder="Translation will appear here..."></textarea>
+      <button onclick="translateText()">Translate</button>
     </div>
+  </div>
 
-    <script src="script.js"></script>
+  <script>
+    function translateText() {
+      const input = document.getElementById('input-text').value.trim();
+      const source = document.getElementById('source-lang').value;
+      const target = document.getElementById('target-lang').value;
+      const output = document.getElementById('output-text');
+
+      if (!input) {
+        output.value = 'Please enter some text.';
+        return;
+      }
+
+      // Mock translation logic
+      output.value = `[${source} → ${target}] "${input}"`;
+    }
+  </script>
 </body>
-
 </html>
