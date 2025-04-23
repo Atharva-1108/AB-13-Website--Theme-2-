@@ -1,12 +1,9 @@
-/* Base Styles */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f5f7fa;
-  color: #2c3e50;
+  overflow: hidden;
 }
 
-/* Prompt Overlay */
 #overlay {
   position: fixed;
   top: 0;
@@ -31,7 +28,6 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .cloud img {
@@ -54,74 +50,17 @@ body {
   background-color: #2e86de;
   color: white;
   cursor: pointer;
-  transition: transform 0.3s, background-color 0.3s;
+  transition: transform 0.3s;
 }
 
 .language-buttons button:hover {
   transform: scale(1.05);
-  background-color: #1e5fbf;
 }
 
 #main-content {
   display: none;
-  padding: 60px 20px;
+  padding: 40px;
   text-align: center;
-  animation: fadeIn 1s ease forwards;
-}
-
-button {
-  padding: 12px 24px;
-  font-size: 1rem;
-  margin: 10px;
-  border-radius: 8px;
-  border: none;
-  background-color: #16a085;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: #12876f;
-}
-
-.container {
-  max-width: 600px;
-  margin: 80px auto;
-  background: white;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  animation: slideUp 1s ease;
-}
-
-input, select {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  font-size: 1rem;
-  background-color: #fdfdfd;
-}
-
-#record-result, #tax-result {
-  margin-top: 20px;
-  background: #ecf0f1;
-  padding: 20px;
-  border-radius: 12px;
-  border-left: 4px solid #2980b9;
-  white-space: pre-line;
-}
-
-@keyframes fadeIn {
-  0% { opacity: 0; transform: scale(0.9); }
-  100% { opacity: 1; transform: scale(1); }
-}
-
-@keyframes slideUp {
-  from { transform: translateY(30px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
 }
 
 .fade-out {
